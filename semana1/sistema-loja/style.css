@@ -1,0 +1,178 @@
+* {
+    margin: 0 auto;
+}
+
+nav {
+    background-color: #454135;
+    padding: 20px;
+  }
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+    margin:0 10px;
+  }
+
+  footer {
+    background-color: #454135;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .p-footer {
+      color: #ffffff;
+      margin: 10px auto;
+  }
+
+
+  /* INDEX.HTML */
+  .home {
+      background-image: url(img/background.jpg);
+      background-size: cover;
+      background-position: center;
+      height: 90vh;
+      width: 100vw;
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }
+
+  h1 {
+      color: #ffffff;
+      font-size: 5em;
+      text-align: center;
+  }
+
+
+  .p-home {
+    margin-top: 50px;
+    color: #ffffff;
+    text-align: center;
+    font-size: 1.3em;
+  }
+
+
+
+
+  /* ESTOQUE.HTML */
+
+  .tabela-img {
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .estoque {
+      display: flex;
+      flex-direction: column;
+      background-color: #F6F1ED;
+  }
+
+  .h2-estoque {
+      margin-top: 50px;
+  }
+  
+  table {
+    background-color: #ffffff;
+    border-style: dotted;
+    margin: 40px auto;
+    width: 60%;
+  }
+
+  th {
+    background-color: #8D996D;
+  }
+
+  .td-img {
+      display: flex;
+  }
+
+  .td-numero {
+      width: 15%;
+      text-align: center;
+  }
+
+
+  /* EQUIPE.HTML */
+
+  .equipe {
+      background-color: #F6F1ED;
+      padding: 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+  }
+
+  .equipe-div {
+      display: flex;
+      width: 60%;
+      margin-top:50px;
+  }
+
+  .equipe-lista {
+      width: 40%;   
+  }
+
+
+  li {
+      margin: 10px;
+      list-style-type: none; 
+  }
+
+  
+  .equipe-img {
+    height: 250px;
+    border-radius: 120px;  
+    object-fit: cover;
+    margin: 40px auto;
+  }
+
+  .comemoracao {
+    background-color: #BDC789;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px;
+  }
+
+  .restaurantes-img {
+    height: 200px;
+    border-radius: 120px;  
+    object-fit: cover;
+    margin: 50px 30px;
+  }
+
+  /* PRODUTOS.HTML */
+
+  .produtos {
+    background-color: #F6F1ED;
+    padding: 70px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .h2-produtos {
+  }
+
+  form {
+      margin-top: 50px;
+      
+  }
+
+  label {
+      font-size: 1.2em;
+  }
+
+  
+  input {
+      margin-top: 20px;
+  }
+
+  button {
+    background-color: #BDC789;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 1.2em;
+  }
