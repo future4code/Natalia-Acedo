@@ -30,9 +30,6 @@ img {
     width: 100px;
 }
 
-div>p:first-child {
-    display: inline;
-}
 
 div img {
     background: black;
@@ -70,9 +67,28 @@ div img {
 #container-de-descricao {
     background-color: #2274a5;
     color: white;
-    position: relative;
     padding-top: 50px;
 }
+
+#container-de-descricao p{
+    text-align: right;
+}
+
+#container-de-descricao p:first-child {
+    position: relative;
+    right: 120px;
+}
+
+#container-de-descricao p:nth-child(2) {
+    position:relative;
+    right: 80px;
+}
+
+#container-de-descricao p:nth-child(3) {
+    position:relative;
+    right: 20px;
+}
+
 
 #container-de-descricao>ol {
     padding: 15px 0px;
@@ -88,11 +104,6 @@ div img {
     font-size: 60px;
 }
 
-#container-para-comprar a {
-    position:relative;
-    top: 60px;
-    right: 350px;
-}
 
 
 /**
