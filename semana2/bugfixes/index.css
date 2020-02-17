@@ -70,26 +70,6 @@ div img {
     padding-top: 50px;
 }
 
-#container-de-descricao p{
-    text-align: right;
-}
-
-#container-de-descricao p:first-child {
-    position: relative;
-    right: 120px;
-}
-
-#container-de-descricao p:nth-child(2) {
-    position:relative;
-    right: 80px;
-}
-
-#container-de-descricao p:nth-child(3) {
-    position:relative;
-    right: 20px;
-}
-
-
 #container-de-descricao>ol {
     padding: 15px 0px;
 }
