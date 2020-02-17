@@ -86,6 +86,12 @@ div img {
     font-size: 60px;
 }
 
+#container-para-comprar a {
+    position:relative;
+    top: 60px;
+    right: 350px;
+}
+
 
 /**
   *
