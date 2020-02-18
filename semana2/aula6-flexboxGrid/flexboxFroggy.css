@@ -1,0 +1,255 @@
+    /*JUSTIFY-CONTENT: essa propriedade CSS alinha os itens horizontalmente e aceita os seguintes valores:
+
+    flex-start: Itens se alinham à esquerda do container.
+    flex-end: Itens se alinham à direita do container.
+    center: Itens se alinham no centro do container.
+    space-between: Itens se alinham com distância igual entre eles.
+    space-around: Itens se alinham com distância igual em torno deles.
+    */
+
+/* Nível 1 */
+#pond {
+    display: flex;
+    justify-content: flex-end;  
+  }
+
+  /* Nível 2 */
+#pond {
+    display: flex;
+    justify-content: center;  
+  }
+
+   /* Nível 3 */
+#pond {
+    display: flex;
+    justify-content: space-around;
+  }
+
+
+     /* Nível 4 */
+#pond {
+    display: flex;
+    justify-content: space-between
+  }
+
+    /*
+    ALIGN-ITEMS: Essa propriedade CSS alinha os itens verticalmente e aceita os seguintes valores:
+
+    flex-start: Itens se alinham na parte de cima do container.
+    flex-end: Itens se alinham na parte de baixo do container.
+    center: Itens se alinham no centro vertical do container.
+    baseline: Items se alinham na linha da base do container.
+    stretch: Itens se esticam para preencher o container.
+    */
+
+
+     /* Nível 5 */
+#pond {
+    display: flex;
+    align-items: flex-end;
+  }
+
+
+     /* Nível 6 */
+     #pond {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+       /* Nível 7 */
+     #pond {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-end;
+      }
+
+        /* Nível 8 */
+     #pond {
+        display: flex;
+        flex-direction: row-reverse;        
+      }
+
+
+      /*
+    FLEX-DIRECTION
+    row: Itens são posicionados na mesma direção do texto.
+    row-reverse: Itens são posicionados na direção oposta à do texto.
+    column: Itens são posicionados de cima para baixo.
+    column-reverse: Itens são posicionados de baixo para cima.
+    */
+
+        /* Nível 9 */
+     #pond {
+        display: flex;
+        flex-direction:column;       
+      }
+
+        /* Nível 10 */
+     #pond {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content:flex-end;      
+      }
+
+        /* Nível 11 */
+     #pond {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;      
+      }
+
+        /* Nível 12 */
+     #pond {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: space-between;      
+      }
+
+        /* Nível 13 */
+     #pond {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content:  center;
+        align-items: flex-end;     
+      }
+
+        /* Nível 14 */
+     #pond {
+        display: flex;     
+      }
+
+      .yellow {
+          order: 3;
+    }
+
+
+        /* Nível 14 */
+     #pond {
+        display: flex;     
+      }
+
+    .yellow {
+        order: 3;
+    }
+
+
+     /* Nível 15 */
+     #pond {
+        display: flex;     
+      }
+
+    .red {
+        order: -1;
+    }
+
+
+    /* Nível 16 */
+    #pond {
+        display: flex;
+        align-items: flex-start;
+    }
+      
+    .yellow {
+        align-self: flex-end;
+    }
+
+
+    /* Nível 17 */
+    #pond {
+        display: flex;
+        align-items: flex-start;
+    }
+      
+    .yellow {
+        order:1;
+        align-self: flex-end
+    }
+
+/* Nível 17 */
+    #pond {
+        display: flex;
+        align-items: flex-start;
+    }
+      
+    .yellow {
+        order:1;
+        align-self: flex-end
+    }
+
+    
+   /*
+   FLEX-WRAP
+   nowrap: Todos os itens são apertados em uma única linha.
+    wrap: Itens se separam em linhas adicionais.
+    wrap-reverse: Itens se separam em linhas adicionais em reverso.
+    */
+
+    /* Nível 18 */
+    #pond {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+     /* Nível 19 */
+     #pond {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    /* flex-direction e flex-wrap: abreviada flex-flow. Essa propriedade aceita o valor das duas propriedades separados por um espaço.
+    */
+
+     /* Nível 20 */
+    #pond {
+        display: flex;
+        flex-flow: column wrap;
+    }
+
+    /*
+    ALIGN-CONTENT determina o espaçamento entre linhas, enquanto align-items determina como as linhas como um todo são alinhadas dentro do container
+    */
+
+
+    /* Nível 21 */
+    #pond {
+        display: flex;
+        flex-wrap: wrap;
+        align-content: flex-start;
+    }
+
+    /* Nível 22 */
+    #pond {
+        display: flex;
+        flex-wrap: wrap;
+        align-content: flex-end;
+    }
+
+    /* Nível 23 */
+    #pond {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+        align-content: center;
+    }
+
+
+      /* Nível 24 */
+      #pond {
+        display: flex;
+        flex-flow: wrap-reverse column-reverse;
+        justify-content: center;
+        align-content: space-between;
+    }
+  
+  
+  
+  
+
+
+ 
+
+
+
+
