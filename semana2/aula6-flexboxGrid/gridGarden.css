@@ -1,0 +1,126 @@
+/* grid-column-start */
+
+/* Nível 1 */ 
+
+#garden {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+  }
+  
+  #water {
+    grid-column-start: 3;
+  }
+
+  /* Nível 2 */
+
+  #garden {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+  }
+  
+  #poison {
+    grid-column-start: 5;  
+  }
+
+
+  /* grid-column-end: extender o item através de múltiplas colunas */
+
+  /* Nível 3 */
+  #garden {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+  }
+  
+  #water {
+    grid-column-start: 1;
+    grid-column-end: 4;  
+  }
+
+  /* Nível 4 */
+  #garden {
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+  }
+  
+  #water {
+    grid-column-start: 5;
+    grid-column-end: 2;
+  }
+
+  /* Nível 5 */
+  grid-column-end: -2;
+
+  /* Nível 6 */
+  grid-column-start: -3
+
+  /* Nível 7 */
+  grid-column-end: span 2;
+
+  /* Nível 8 */
+  grid-column-end: span 5;
+
+ /* Nível 9 */
+ grid-column-start: span 3;
+
+ /* Nível 10 */
+ grid-column: 4 / 6
+
+ /* Nível 11 */
+ grid-column: 2 / 5
+
+ /* Nível 12 */
+ grid-row-start: 3;
+
+ /* Nível 13 */
+ grid-row: 3/6;
+
+ /* Nível 14 */
+ grid-row: 5;
+ grid-column: 2;
+
+ /* Nível 15 */
+ grid-row: 1/6;
+ grid-column: 2/6;
+
+ /* Nível 16 */
+ grid-area: 1 / 2 / 4 / 6;
+
+ /* Nível 17 */
+ grid-area: 2 / 3 / 5 / 6;
+
+ /* Nível 18 */
+ order: 1;
+
+ /* Nível 19 */
+order: -1
+
+ /* Nível 20 */
+ grid-template-columns: 50% 20% 20% 10%
+
+ /* Nível 21 */
+ grid-template-columns: repeat(8, 12.5%)
+
+ /* Nível 22 */
+ grid-template-columns: 100px 3em 40%
+
+ /* Nível 23 */
+ grid-template-columns: 1fr 5fr
+
+ /* Nível 24 */
+ grid-template-columns: 50px 1fr 1fr 1fr 50px;
+
+ /* Nível 25 */
+ grid-template-columns: 75px 3fr 2fr
+
+ /* Nível 26 */
+ grid-template-rows: 50px 0 0 0;
+
+ /* Nível 27 */
+ grid-template: 60% / 200px;
+
+ /* Nível 28 */
+grid-template:  1fr 50px / 20% 80%
