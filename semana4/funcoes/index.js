@@ -21,9 +21,9 @@ const minhaFuncao = (quantidade) => {
 
 //c. Indique qual será o resultado da função caso ela seja chamada como minhaFuncao(8)
 //[0,1, 0, 1, 2, 3, 0, 1, 2, 3, 4, 5]
+*/
 
-
-
+/*
 //EXERCÍCIO 2
 
 
@@ -46,9 +46,9 @@ console.log(funcao(arrayDeNomes, "Paula"));
 
 //b. O código funcionaria se a lista fosse um array de números (ao invés de um array de string)  e o nome fosse um número, ao se chamar a função? Justifique sua resposta.
 //Não funcionaria, porque o valor de i é um número e ao ser comparado com números aleatórios dificilmente serão iguais. Apenas daria certo se os número do array fossem [0, 1, 2, 3, 4]
+*/
 
-
-
+/*
 //EXERCÍCIO 3
 
 //O código abaixo mostra uma função que recebe um array e devolve outro array. Explique rapidamente o que ela faz e sugira um nome melhor para ela!
@@ -69,12 +69,12 @@ function metodo(array) {
   }
  
  //Essa função recebe elementos em um primeiro array. Dentro da função há duas variáveis com valores numéricos e uma variavél que tem um segundo array sem elementos definidos. O "for" soma ou multiplica cada elemento do primeiro array ao valores das duas variáveis dentro da função. A função metodo retorna o arrayFinal com o valore novo do resultadoA e do resultadoB. Um nome para essa função poderia ser somarMultiplicarArray
-
+*/
 
  
 //Exercícios de ESCRITA de código
 //EXECÍCIO 4
-
+/*
 //a. A função deve receber um número correspondente aos "anos humanos" que um cachorro tem e calcular a "idade de cachorro" dele. Considere que 1 ano humano equivale a 7 anos de cachorro
 
 function calcularAnosHumanos (idadeCachorro) {
@@ -85,8 +85,9 @@ function calcularAnosHumanos (idadeCachorro) {
 
 let meuCachorro = calcularAnosHumanos(5)
 console.log(meuCachorro)
+*/
 
-
+/*
 //b.  Escreva uma função que receba 4 parâmetros que correspondem às informações de uma pessoa: o nome (string), a idade (number), o endereço (string) e um boolean que representa se é estudante ou não. Ela deve retornar uma string que unifique todas as informações da pessoa em uma só mensagem com o template:
 
 let nome = prompt("Qual seu nome?")
@@ -105,20 +106,19 @@ function coletarInformacoes (nome, idade, endereco, estudante) {
     console.log(coletarInformacoes(nome, idade, endereco, estudante))
 */
 
+/*
 //EXERCÍCIO 5
 
 let ano = prompt("Qual ano você gostaria de descobrir o século?(Ano entre 1000dc até 2020dc)")
 
 function determinarSeculo (ano){
-    if (ano < 1101){
-        return "O ano " + ano+ " pertence ao século X"
-    } else if (ano > 1100 && ano < 1201){
+    if (ano > 1000 && ano < 1101){
         return "O ano " + ano+ " pertence ao século XI"
-    } else if (ano > 1200 && ano < 1301){
+    } else if (ano > 1100 && ano < 1201){
         return "O ano " + ano+ " pertence ao século XII"
-    }else if (ano > 1300 && ano < 1401){
+    } else if (ano > 1200 && ano < 1301){
         return "O ano " + ano+ " pertence ao século XIII"
-    } else if (ano > 1400 && ano < 1501){
+    }else if (ano > 1300 && ano < 1401){
         return "O ano " + ano+ " pertence ao século XIV"
     } else if (ano > 1400 && ano < 1501){
         return "O ano " + ano+ " pertence ao século XV"
@@ -135,8 +135,55 @@ function determinarSeculo (ano){
     } else if (ano > 2000 && ano < 2101){
         return "O ano " + ano+ " pertence ao século XXI"
     } else {
-        return "Ano fora do intervalo de 1000dc até 2020dc.";
+        return "Ano fora do intervalo de 1001dc até 2020dc.";
     }
 }
 
 console.log(determinarSeculo(ano))
+*/
+
+//EXERCÍCIO 6
+
+/*
+//a. Escreva uma função que receba um array de números e devolva a quantidade de elementos nele
+
+let array = [10, 23, 45, 78, 90, 52, 35, 67, 84, 22]
+
+function quantidadeDeElementos (array) {
+    return array.length
+}
+
+console.log(quantidadeDeElementos(array))
+*/
+
+/*
+//b. Escreva uma função que receba um número e devolva um booleano indicando se ele é par ou não
+
+function verificarParidade (numero) {
+    if (numero %2 === 0){
+        return true
+    } else {
+        return false
+    }
+
+}
+let numero = Number((prompt("O número é par?")))
+console.log(verificarParidade(numero))
+*/
+
+//c. Escreva uma função que receba um array de números e devolva a quantidade de números pares dentro dele
+
+let array = [10, 23, 45, 78, 90, 52, 35, 67, 84, 22]
+
+let quantidadePares = (array) => {
+    let arrayPares = []
+	for(let item of array) {
+        if (item %2 === 0) {
+            arrayPares.push(item)
+        }           
+	}
+	return arrayPares.length
+}
+
+console.log(quantidadePares(array))
+
