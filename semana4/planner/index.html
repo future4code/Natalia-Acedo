@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="index.js" defer></script>
+    <link href="index.css" type="text/css" rel="stylesheet" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Planner Semanal</h1>
+    <div class="add-tarefa">
+      <input id="input-tarefa" type="text" placeholder="Digite a tarefa">
+      <select id="seletor-dia">
+        <option value="segunda">Segunda</option>
+        <option value="terca">Terça</option>
+        <option value="quarta">Quarta</option>
+        <option value="quinta">Quinta</option>
+        <option value="sexta">Sexta</option>
+        <option value="sabado">Sábado</option>
+        <option value="domingo">Domingo</option>
+      </select>
+      <button onclick="insereTarefa()">Enviar</button>
+      <button onclick="apagarTarefas()">Apagar todas as tarefas</button>
+    </div>
+    <section class="container-semana">
+      <ul id="segunda">Segunda</ul>
+      <ul id="terca">Terça</ul>
+      <ul id="quarta">Quarta</ul>
+      <ul id="quinta">Quinta</ul>
+      <ul id="sexta">Sexta</ul>
+      <ul id="sabado">Sábado</ul>
+      <ul id="domingo">Domingo</ul>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+.container-semana {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 1fr;
+}
+
+.feito {
+text-decoration: line-through;
+}
+
+.apagar-tarefas {
+    display: none;
+}
