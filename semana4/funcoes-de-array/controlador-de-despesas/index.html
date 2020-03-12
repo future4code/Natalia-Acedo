@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <script src="index.js" defer></script>
+  <link href="index.css" type="text/css" rel="stylesheet" />
+  <title>Controlador de Despesas</title>
+</head>
+
+<body>
+  <h1>Controlador de Despesas</h1>
+
+  <!--PRIMEIRA SEÇÃO-->
+  <section id="section-cadastro">
+    <h2>Cadastrar despesa</h2>
+    <label>Valor</label>
+    <input id="valor-gasto" type="number" placeholder="Valor">
+    <label>Tipo</label>
+    <select id="seletor-tipo">
+      <option value="alimentacao">Alimentação</option>
+      <option value="transporte">Transporte</option>
+      <option value="aluguel">Aluguel/Condomínio</option>
+    </select>
+    <label>Descrição do gasto</label>
+    <input id="descricao-gasto" placeholder="Descrição do gasto"></input>
+    <button id="botao-cadastro" onclick="enviarCadastro ()">Enviar</button>
+  </section>
+
+  <!--SEGUNDA SEÇÃO-->
+  <section id="section-lista-despesa">
+    <h2>Despesas detalhadas</h2>
+    <label>Tipo</label>
+    <select id="seletor-tipo">
+      <option value="alimentacao">Alimentação</option>
+      <option value="transporte">Transporte</option>
+      <option value="aluguel">Aluguel/Condomínio</option>
+    </select>
+    <label>Valor Mínimo</label>
+    <input id="valor-minimo" type="number">
+    <label>Valor Máximo</label>
+    <input id="valor-maximo" type="number">
+    <button id="botao-filtrar" onclick="filtrarDespesas ()">Filtrar</button>
+    <button id="botao-limpar" onclick="">Limpar Filtros</button>
+  </section>
+
+  <!--TERCEIRA SEÇÃO-->
+  <section id="extrato">
+    <h2>Extrato</h2>
+    <div id="lista-despesas"></div>
+
+  </section>
+
+</body>
+
+</html>
