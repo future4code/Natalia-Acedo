@@ -61,7 +61,7 @@ console.log(arrayPares) */
 //3
 //O código não funciona porque não foi declarado valor para a variável quantidadeDeNumerosPares. O valor multiplicado por 2 dever ser a variável quantidadeDeNumerosPares. i teria que ser apenas < que quantidadeDeNumerosPares e não <=. Além disso faltou a verificação se i é par ou não. 
 
-let numeroN = Number(prompt("Digite um número"))
+/* let numeroN = Number(prompt("Digite um número"))
 
 const quantidadeDeNumerosPares = []
 
@@ -73,5 +73,17 @@ while(i < numeroN*2) {
   i++
 }
 console.log(quantidadeDeNumerosPares)
+ */
 
 
+ //4
+
+ function verificarTriangulos (a, b, c) {
+   if (a === b && b === c) {
+     console.log("É equilátero")
+   } else if (a === b || b === c || a=== c) {
+    console.log("É isósceles")
+   } else if (a !== b && b !== c && a !== c) {
+    console.log("É escaleno")
+   }
+ }
