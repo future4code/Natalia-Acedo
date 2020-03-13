@@ -24,7 +24,7 @@
 
 //1
 
-const array = [0, 1, 2, 3]
+/* const array = [0, 1, 2, 3]
 const arrayPares = []
 
 for(let i = 0; i < 10; i++) {
@@ -47,4 +47,12 @@ while (i < array.length) {
       }
 }
 
-console.log(arrayPares)
+console.log(arrayPares) */
+
+
+//2 
+//a) false
+//b) false 
+//c) true 
+//d) true
+//e) true
