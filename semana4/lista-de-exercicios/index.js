@@ -156,7 +156,7 @@ minhafuncao() */
 //Arrays são variáveis que possuem mais de um elemento, e eles são ordenados. Usamos quando queremos fazer uma lista de coisas. Por exemplo, lista de numeros, lista de strings, numeros pares, etc.
 //Objetos também são variáveis, mas possuem mais dados(propriedades). Um objeto tem chaves e cada chave recebe um valor de qualquer tipo. Diferente do array, eles não são ordenados. Os objetos são usados quando queremos usar mais de uma vez uma mesma propriedade. 
 
-//2 
+/* //2 
 
 function criaRetangulo (lado1, lado2) {
   const retangulo = {
@@ -168,4 +168,16 @@ function criaRetangulo (lado1, lado2) {
   console.log(retangulo)
 }
 
-criaRetangulo(10, 20)
+criaRetangulo(10, 20) */
+
+
+//3
+
+const filmeFavorito = {
+  titulo: "Tonari no Totoro",
+  ano: 1988,
+  diretor: "Miyazaki",
+  atores: ["Noriko Hidaka", "Chika Sakamoto", "Shigesato Itoi"]
+}
+
+console.log("Venha assistir ao filme " + filmeFavorito.titulo + ", de " + filmeFavorito.ano + ", dirigido por " + filmeFavorito.diretor + " e estrelado por " + filmeFavorito.atores)
