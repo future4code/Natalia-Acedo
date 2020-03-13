@@ -78,7 +78,7 @@ console.log(quantidadeDeNumerosPares)
 
  //4
 
- function verificarTriangulos (a, b, c) {
+/*  function verificarTriangulos (a, b, c) {
    if (a === b && b === c) {
      console.log("É equilátero")
    } else if (a === b || b === c || a=== c) {
@@ -86,4 +86,51 @@ console.log(quantidadeDeNumerosPares)
    } else if (a !== b && b !== c && a !== c) {
     console.log("É escaleno")
    }
+ } */
+
+
+ //5
+
+
+ function verificarMaior (n1, n2) {
+   if (n1 > n2 ) {
+     console.log ("O maior é " + n1)
+   } else if (n1 < n2 ){
+    console.log ("O maior é " + n2)
+   } else {
+    console.log ("São iguais")
+   }
  }
+
+ function verificarDivisivel(n1, n2) {
+  if (n1 % n2 === 0) {
+    console.log (n1 + " é divisível por " + n2)
+  } else {
+    console.log (n1 + " não é divisível por " + n2)
+  } 
+
+  if (n2 % n1 === 0) {
+    console.log (n2 + " é divisível por " + n1)
+  } else {
+    console.log (n2 + " não é divisível por " + n1)
+  } 
+}
+
+function verificarDiferenca (n1, n2) {
+  if (n1 > n2 ) {
+    let resultado = n1 - n2
+    console.log("A diferença entre eles ", resultado)
+  } else if (n1 < n2 ){
+    let resultado = n2 - n1
+    console.log("A diferença entre eles ", resultado)
+  } else {
+   console.log ("São iguais")
+  }
+}
+
+verificarMaior(15, 30)
+verificarDivisivel(15,30)
+verificarDiferenca(15, 30)
+
+
+
