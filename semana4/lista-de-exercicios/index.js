@@ -56,3 +56,22 @@ console.log(arrayPares) */
 //c) true 
 //d) true
 //e) true
+
+
+//3
+//O código não funciona porque não foi declarado valor para a variável quantidadeDeNumerosPares. O valor multiplicado por 2 dever ser a variável quantidadeDeNumerosPares. i teria que ser apenas < que quantidadeDeNumerosPares e não <=. Além disso faltou a verificação se i é par ou não. 
+
+let numeroN = Number(prompt("Digite um número"))
+
+const quantidadeDeNumerosPares = []
+
+let i = 0
+while(i < numeroN*2) {
+  if (i %2 === 0){
+      quantidadeDeNumerosPares.push(i)
+  }
+  i++
+}
+console.log(quantidadeDeNumerosPares)
+
+
