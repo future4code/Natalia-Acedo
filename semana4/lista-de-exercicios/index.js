@@ -268,7 +268,7 @@ console.log(parImparArray) */
 
 
 //3
-const pessoas = [
+/* const pessoas = [
 	{ nome: "Paula", idade: 12, altura: 1.8},
 	{ nome: "João", idade: 20, altura: 1.3},
 	{ nome: "Pedro", idade: 15, altura: 1.9},
@@ -289,4 +289,39 @@ const semPermissao = pessoas.filter((pessoa, index, array) => {
   return (pessoa.altura < 1.5 || pessoa.idade <= 14 || pessoa.idade >= 60)
 } )
 
-console.log(semPermissao)
+console.log(semPermissao) */
+
+
+//4 
+
+const consultas = [
+	{ nome: "João", genero: "masculino", cancelada: true, dataDaConsulta: "01/10/2019" },
+	{ nome: "Pedro", genero: "masculino", cancelada: false, dataDaConsulta: "02/10/2019" },
+	{ nome: "Paula", genero: "feminino", cancelada: true, dataDaConsulta: "03/11/2019" },
+	{ nome: "Márcia", genero: "feminino", cancelada: false, dataDaConsulta: "04/11/2019" }
+]
+
+const genero = consultas.forEach((cliente, index, array) => {
+  if (cliente.genero === "feminino") {
+    cliente.genero = ["Sra", "lembrá-la"]
+  } else {
+    cliente.genero = ["Sr", "lembrá-lo"]
+  }
+})
+
+console.log(consultas)
+
+  const emails = consultas.map((cliente, index, array) => {
+    if (cliente.cancelada === false ) {
+      return `Olá, ${cliente.genero[0]} ${cliente.nome}. Estamos enviando esta mensagem para
+      ${cliente.genero[1]} da sua consulta no dia ${cliente.dataDaConsulta}. Por favor, acuse
+      o recebimento deste e-mail.`
+    }
+    if (cliente.cancelada === true ) {
+      return `Olá, ${cliente.genero[0]} ${cliente.nome}. Infelizmente, sua consulta marcada
+      para o dia ${cliente.dataDaConsulta} foi cancelada. Se quiser, pode entrar em 
+      contato conosco para remarcá-la`
+    }
+  })
+
+console.log(emails)
