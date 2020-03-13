@@ -92,7 +92,7 @@ console.log(quantidadeDeNumerosPares)
  //5
 
 
- function verificarMaior (n1, n2) {
+ /* function verificarMaior (n1, n2) {
    if (n1 > n2 ) {
      console.log ("O maior é " + n1)
    } else if (n1 < n2 ){
@@ -130,7 +130,20 @@ function verificarDiferenca (n1, n2) {
 
 verificarMaior(15, 30)
 verificarDivisivel(15,30)
-verificarDiferenca(15, 30)
+verificarDiferenca(15, 30) */
 
 
 
+//Exercícios de FUNÇÕES
+
+//1
+
+
+
+//2
+
+const minhafuncao = () => {
+  alert("Hello Future4")
+}
+
+minhafuncao()
