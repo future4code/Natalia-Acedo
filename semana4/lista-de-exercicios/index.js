@@ -142,8 +142,16 @@ verificarDiferenca(15, 30) */
 
 //2
 
-const minhafuncao = () => {
+/* const minhafuncao = () => {
   alert("Hello Future4")
 }
 
-minhafuncao()
+minhafuncao() */
+
+
+
+//Exercícios de Objetos
+
+//1.
+//Arrays são variáveis que possuem mais de um elemento, e eles são ordenados. Usamos quando queremos fazer uma lista de coisas. Por exemplo, lista de numeros, lista de strings, numeros pares, etc.
+//Objetos também são variáveis, mas possuem mais dados(propriedades). Um objeto tem chaves e cada chave recebe um valor de qualquer tipo. Diferente do array, eles não são ordenados. Os objetos são usados quando queremos usar mais de uma vez uma mesma propriedade. 
