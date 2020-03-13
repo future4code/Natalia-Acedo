@@ -172,7 +172,7 @@ criaRetangulo(10, 20) */
 
 
 //3
-
+/* 
 const filmeFavorito = {
   titulo: "Tonari no Totoro",
   ano: 1988,
@@ -180,4 +180,24 @@ const filmeFavorito = {
   atores: ["Noriko Hidaka", "Chika Sakamoto", "Shigesato Itoi"]
 }
 
-console.log("Venha assistir ao filme " + filmeFavorito.titulo + ", de " + filmeFavorito.ano + ", dirigido por " + filmeFavorito.diretor + " e estrelado por " + filmeFavorito.atores)
+console.log("Venha assistir ao filme " + filmeFavorito.titulo + ", de " + filmeFavorito.ano + ", dirigido por " + filmeFavorito.diretor + " e estrelado por " + filmeFavorito.atores) */
+
+//4
+
+const pessoa = {
+  nome: "Raul", 
+  idade: 25,
+  email: "raul@gmail.com",
+  endereco: "Rua dos bobos, ṇº0"
+}
+console.log(pessoa)
+
+function anonimizarPessoa () {
+  const anonimo = {
+  ...pessoa,
+  nome: "ANÔNIMO",
+}
+console.log(anonimo)
+}
+
+console.log(anonimizarPessoa())
