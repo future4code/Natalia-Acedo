@@ -337,3 +337,18 @@ const contas = [
 	{ cliente: "Soter", saldoTotal: 1200, compras: [] }
 ]
 
+
+contas.forEach((elemento,index,array) => {
+  let soma = 0
+
+  for(let valor of elemento.compras){
+      soma += valor
+  }
+
+  elemento.saldoTotal -= soma;
+})
+
+
+console.log(contas)
+
+
