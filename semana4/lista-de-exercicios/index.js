@@ -233,7 +233,7 @@ console.log(criancaAdolescente) */
 
 
 //2 
-
+/* 
 const array = [1, 2, 3, 4, 5, 6]
 
 //a) 
@@ -263,4 +263,30 @@ const parImparArray = array.map((numero, index, array) => {
   }
 }) 
 
-console.log(parImparArray)
+console.log(parImparArray) */
+
+
+
+//3
+const pessoas = [
+	{ nome: "Paula", idade: 12, altura: 1.8},
+	{ nome: "João", idade: 20, altura: 1.3},
+	{ nome: "Pedro", idade: 15, altura: 1.9},
+	{ nome: "Luciano", idade: 22, altura: 1.8},
+	{ nome: "Artur", idade: 10, altura: 1.2},
+	{ nome: "Soter", idade: 70, altura: 1.9}
+]
+
+//a)
+const comPermissao = pessoas.filter((pessoa, index, array) => {
+  return (pessoa.altura >= 1.5 && pessoa.idade > 14 && pessoa.idade < 60)
+} )
+
+console.log(comPermissao)
+
+//b)
+const semPermissao = pessoas.filter((pessoa, index, array) => {
+  return (pessoa.altura < 1.5 || pessoa.idade <= 14 || pessoa.idade >= 60)
+} )
+
+console.log(semPermissao)
