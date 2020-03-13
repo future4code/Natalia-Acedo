@@ -184,7 +184,7 @@ console.log("Venha assistir ao filme " + filmeFavorito.titulo + ", de " + filmeF
 
 //4
 
-const pessoa = {
+/* const pessoa = {
   nome: "Raul", 
   idade: 25,
   email: "raul@gmail.com",
@@ -200,4 +200,33 @@ function anonimizarPessoa () {
 console.log(anonimo)
 }
 
-console.log(anonimizarPessoa())
+console.log(anonimizarPessoa()) */
+
+
+
+
+//Exercícios de FUNÇÕES DE ARRAY 
+
+//1 
+
+const pessoas = [
+	{ nome: "Pedro", idade: 20 },
+	{ nome: "João", idade: 10 },
+	{ nome: "Paula", idade: 12 },
+	{ nome: "Artur", idade: 89 } 
+]
+
+//a)
+
+ const pessoasAdultas = pessoas.filter((pessoa, index, array) => {
+    return pessoa.idade >= 20 
+  })
+
+console.log(pessoasAdultas)
+
+//b) 
+const criancaAdolescente = pessoas.filter((pessoa, index, array) => {
+  return pessoa.idade < 20 
+})
+
+console.log(criancaAdolescente)
