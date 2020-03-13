@@ -16,3 +16,35 @@
 //4
 //console.log(numero1) imprimirá o maior numero do array "numeros", no caso 283.
 //console.log(numero2) imprimirá o menor número do array "numeros", ou seja, -10.
+
+
+
+//Exercícios de LÓGICA de Programação
+
+
+//1
+
+const array = [0, 1, 2, 3]
+const arrayPares = []
+
+for(let i = 0; i < 10; i++) {
+    if(i %2 === 0) {
+        arrayPares.push(i)
+      }
+}
+
+for(let item of array) {
+    if(item %2 === 0) {
+        arrayPares.push(item)
+      }
+} 
+
+let i = 0
+while (i < array.length) {
+    i++
+    if(i %2 === 0) {
+        arrayPares.push(i)
+      }
+}
+
+console.log(arrayPares)
