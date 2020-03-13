@@ -209,7 +209,7 @@ console.log(anonimizarPessoa()) */
 
 //1 
 
-const pessoas = [
+/* const pessoas = [
 	{ nome: "Pedro", idade: 20 },
 	{ nome: "João", idade: 10 },
 	{ nome: "Paula", idade: 12 },
@@ -229,4 +229,38 @@ const criancaAdolescente = pessoas.filter((pessoa, index, array) => {
   return pessoa.idade < 20 
 })
 
-console.log(criancaAdolescente)
+console.log(criancaAdolescente) */
+
+
+//2 
+
+const array = [1, 2, 3, 4, 5, 6]
+
+//a) 
+const dobroArray = array.map((numero, index, array) => {
+  return numero*2
+})
+
+console.log(dobroArray)
+
+
+//b)
+const triploStringArray = array.map((numero, index, array) => {
+  return String(numero*3)
+}) 
+
+console.log(triploStringArray)
+
+
+//c)
+const parImparArray = array.map((numero, index, array) => {
+  if(numero %2 === 0) {
+   return `${numero} é par`
+  } 
+  
+  if (numero %2 !== 0) {
+    return`${numero} é ímpar`
+  }
+}) 
+
+console.log(parImparArray)
