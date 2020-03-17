@@ -1,0 +1,11 @@
+.container-card-pequeno {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.img-card-pequeno {
+    width: 30px;
+    margin-right: 15px;
+}
