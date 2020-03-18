@@ -1,0 +1,19 @@
+.div-botao {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    padding: 5px 30px;
+    border-radius: 30px;
+    display: flex;
+}
+
+.botao-imagem {
+    width: 20px;
+    align-self: center;
+}
+
+button p {
+    margin-left: 10px;
+}

@@ -1,0 +1,28 @@
+.card-grande {
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}
+
+.container-card-grande {
+    display: flex;
+    width: 50%;
+    align-self: center;
+}
+
+
+.img-card-grande {
+    height: 150px;
+    border-radius: 120px;  
+    object-fit: cover;
+    align-self: center;
+}
+
+.card-grande-texto {
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-self: center;
+}
