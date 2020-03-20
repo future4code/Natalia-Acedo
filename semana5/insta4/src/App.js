@@ -100,22 +100,4 @@ class App extends React.Component {
   }
 }
 
-    /* render() {
-    return (
-      this.state.posts.map((post, index) => {
-        return (
-          <div className={'app-container'}>
-            <Post
-              nomeUsuario={post.nomeUsuario}
-              fotoUsuario={post.fotoUsuario}
-              fotoPost={post.fotoPost}
-              key={index}
-            />
-          </div>
-        )
-      })
-    )
-  }
-} */
-
 export default App;
