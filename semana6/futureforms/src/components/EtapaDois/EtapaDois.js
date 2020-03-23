@@ -11,7 +11,6 @@ function EtapaDois(props) {
             <input>
             </input>
             <br></br>
-            <button>Próxima etapa</button>
         </div>
     )
 }

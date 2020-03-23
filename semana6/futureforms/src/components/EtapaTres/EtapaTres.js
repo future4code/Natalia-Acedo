@@ -14,7 +14,6 @@ function EtapaTres(props) {
                 <option value="Curso de inglês">Curso de inglês</option>
             </select>
             <br></br>
-            <button>Próxima etapa</button>
         </div>
     )
 }
