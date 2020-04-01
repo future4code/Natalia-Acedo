@@ -58,8 +58,8 @@ class UserList extends React.Component {
     deleteUser = (id) => {
         axios
         .delete (
-            "https://us-central1-future-apis.cloudfunctions.net/api/users",
-            id,
+            `https://us-central1-future-apis.cloudfunctions.net/api/users/${id}`,
+
             {
                 headers: {
                     "api-token": "natalia-hamilton"
@@ -67,6 +67,8 @@ class UserList extends React.Component {
             }
         ).then(response => {
             alert("Usuário deletado!")
+        }).catch((error) => {
+            alert("Algo não deu certo.")
         })
     }
 
@@ -79,7 +81,8 @@ class UserList extends React.Component {
                     {this.state.userList.map(user => {
                        return <ContainerUser>
                             {user.name} 
-                            <ButtonDelete onClick={this.deleteUser(user.id)}>
+                            {console.log(user.id)}
+                            <ButtonDelete onClick={() => this.deleteUser(user.id)}>
                                 X
                             </ButtonDelete>
                         </ContainerUser>   

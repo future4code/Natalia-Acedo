@@ -58,7 +58,7 @@ class Register extends React.Component {
             alert("Dados Salvos!")
         })
         .catch(error => {
-            alert("Algo não deu certo")
+            alert("Algo não deu certo.")
         })
     }
 
