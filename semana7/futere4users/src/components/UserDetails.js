@@ -22,30 +22,27 @@ class UserDetails extends React.Component {
     getUserDetails = (id) => {
         axios
         .get (
-            "https://us-central1-future-apis.cloudfunctions.net/api/users",
+            `https://us-central1-future-apis.cloudfunctions.net/api/users/${id}`,
             {
                 headers: {
                     "api-token": "natalia-hamilton"
                 }
             }
         ).then(response => {
-            const test = response.data.result
             this.setState({userDetailsList: response.data.result})
-            console.log(test)
         })
     }
 
    
 
     render () {
-        /* console.log(this.props.propsId) */
         return (
             <ContainerUserDetails>
                 <h1>Usuário selecionado</h1>
                 <ul>
-                    {this.state.userDetailsList.map(user => {
-                        return <li>{user.name}{user.email}</li>
-                    })}
+                    <li> {this.state.userDetailsList.name} </li>
+                    <li>{this.state.userDetailsList.email} </li>
+
                 </ul>
             </ContainerUserDetails>
         )

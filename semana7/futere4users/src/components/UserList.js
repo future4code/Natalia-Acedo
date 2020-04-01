@@ -54,7 +54,6 @@ class UserList extends React.Component {
         .then(response => {
             const userListApi = response.data.result
             this.setState({userList: userListApi})
-            this.getUser()
         })
     }
 
@@ -70,6 +69,7 @@ class UserList extends React.Component {
             }
         ).then(response => {
             alert("Usuário deletado!")
+            this.getUser()
         }).catch(error => {
             alert("Algo não deu certo.")
         })
@@ -77,7 +77,6 @@ class UserList extends React.Component {
 
     onClickUserDetails = (id) => {
         this.setState({idUser: id})
-        {console.log("AQUI" + this.state.idUser)}
     }
 
     
@@ -100,6 +99,7 @@ class UserList extends React.Component {
                             }}>
                                     X
                                 </ButtonDelete>
+                                
                             </ContainerUser>
                         })}
                     </ul>
