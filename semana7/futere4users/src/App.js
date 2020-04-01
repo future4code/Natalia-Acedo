@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import axios from 'axios'
 import Register from './components/Register';
 import UserList from './components/UserList';
+/* import UserDetails from './components/UserDetails'; */
 
 const ContainerApp = styled.div `
 `
@@ -41,7 +42,6 @@ class App extends React.Component {
           </>
           )
         }
-
         </ContainerApp>
     )
   }
