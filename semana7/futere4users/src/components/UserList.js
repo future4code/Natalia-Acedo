@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components'
 import axios from 'axios'
+import UserDetails from './UserDetails';
 
 const ContainerList = styled.div`
    display: flex;
@@ -21,6 +22,7 @@ const ContainerUser = styled.li `
 const ButtonDelete = styled.button ` 
    color: red;
    font-size: 20px;
+   cursor: pointer;
 `
 
 class UserList extends React.Component {
@@ -28,14 +30,16 @@ class UserList extends React.Component {
         super(props)
 
         this.state = {
-            userList: []
+            userList: [],
+            idUser: -1
         }
 
     }
 
     componentDidMount() {
-        this.getUser();
+        this.getUser()
       }
+
 
     getUser = () => {
         axios
@@ -49,8 +53,6 @@ class UserList extends React.Component {
         )
         .then(response => {
             const userListApi = response.data.result
-            console.log(response.data.result)
-
             this.setState({userList: userListApi})
         })
     }
@@ -67,27 +69,43 @@ class UserList extends React.Component {
             }
         ).then(response => {
             alert("Usuário deletado!")
-        }).catch((error) => {
+            this.getUser()
+        }).catch(error => {
             alert("Algo não deu certo.")
         })
     }
 
+    onClickUserDetails = (id) => {
+        this.setState({idUser: id})
+    }
 
+    
     render() {
         return (
             <ContainerList>
+                {this.state.idUser === -1 ?
+                (<>
                 <h1>Usuários Cadastrados</h1> 
                     <ul>
-                    {this.state.userList.map(user => {
-                       return <ContainerUser>
-                            {user.name} 
-                            {console.log(user.id)}
-                            <ButtonDelete onClick={() => this.deleteUser(user.id)}>
-                                X
-                            </ButtonDelete>
-                        </ContainerUser>   
-                    })}
+                        {this.state.userList.map(user => {
+                            return <ContainerUser>
+                                <p onClick = {() => this.onClickUserDetails(user.id)}> {user.name} </p>
+                                <ButtonDelete 
+                                onClick={ () => {
+                                window.confirm("Tem certeza que deseja deletar?");
+                                if (window.confirm) {
+                                    this.deleteUser(user.id)
+                                }
+                            }}>
+                                    X
+                                </ButtonDelete>
+                                
+                            </ContainerUser>
+                        })}
                     </ul>
+                    </>
+                    )
+                    :(<UserDetails propsId={this.state.idUser}></UserDetails>) }
             </ContainerList>
         )
     }
