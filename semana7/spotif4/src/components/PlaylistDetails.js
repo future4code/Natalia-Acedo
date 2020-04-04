@@ -53,6 +53,7 @@ class PlaylistDetails extends React.Component {
 
     
     render() {
+        console.log(this.state.details)
         return (
             <ContainerPlaylistDetails>
             {this.state.addSong ? (
