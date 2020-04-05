@@ -9,7 +9,10 @@ display: flex;
 align-items: center;
 flex-direction: column;
 `
-
+const MainTitle = styled.h1 ` 
+  color: #C81E1E;
+  font-size: 40px;
+`
 
 class App extends React.Component {
   constructor(props) {
@@ -23,7 +26,7 @@ class App extends React.Component {
   render () {
     return (
       <ContainerApp>
-        <h1>Spotif4</h1>
+        <MainTitle>Spotif4</MainTitle>
         <CreatePlaylist></CreatePlaylist>
         <AllPlaylists></AllPlaylists>
       </ContainerApp>
