@@ -1,33 +1,36 @@
 import React from 'react';
+import { connect } from "react-redux";
+import {addTask} from "./actions"
 
-class App extends React.Component {
+export class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       task: [{
-        id: Date.now(),
-        text: "",
-        done: false
+        taskId: Date.now(),
+        taskText: "",
+        taskDone: false
       }],
       inputTask: ""
     }
   }
 
   onChangeTask = (event) => {
+
     this.setState({ inputTask: event.target.value })
   }
 
-  createTask = () => {
+  /* createTask = () => {
     const newTask = {
-      id: Date.now(),
-      text: this.state.inputTask,
-      done: false
+      taskId: Date.now(),
+      taskText: this.state.inputTask,
+      taskDone: false
     }
     const taskCopy = [...this.state.task, newTask]
 
     this.setState({ task: taskCopy, inputTask: "" })
     console.log(this.state.task)
-  }
+  } */
 
 
 
@@ -45,8 +48,8 @@ class App extends React.Component {
           {this.state.task.map(eachTask => {
             return (
               <li
-                key={eachTask.id}>
-                {eachTask.text}
+                key={eachTask.taskId}>
+                {eachTask.taskText}
               </li>
             )
           })}
@@ -56,4 +59,11 @@ class App extends React.Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    taskText: state.tasks.taskList
+  }
+
+export default connect(
+  mapStateToProps
+)(App);

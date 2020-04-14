@@ -1,24 +1,23 @@
 //1. Adicionar tarefa
-export function addTask(newTask) {
+export function addTask(inputTask) {
     return {
         type: 'ADD_TASK',
         payload: {
-            newTask:[{
-                taskId:Date.now(),
-                taskText:"",
+                taskId: Date.now(),
+                taskText: inputTask,
                 taskDone: false
-              }]
         }
     }
 }
 
 
-//2. Marcar tarefas como completas
+//2. Marcar tarefa como completa
 export function completeTask(taskId) {
     return {
         type: 'COMPLETE_TASK',
         payload: {
-          taskId: taskId
+            taskId: taskId,
+            taskDone: true
         }
     }
  }
@@ -29,7 +28,8 @@ export function completeTask(taskId) {
     return {
         type: 'INCOMPLETE_TASK',
         payload: {
-          taskId: taskId
+          taskId: taskId,
+          taskDone: false
         }
     }
  }
