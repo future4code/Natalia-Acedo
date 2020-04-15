@@ -1,32 +1,8 @@
-//Adiciona tarefa
-export const addTask = (taskText) => {
-    return {
-        type: 'ADD_TASK',
-        payload: {
-            taskText
-        }
-    }
-}
+import axios from 'axios'
 
-//Toggle tarefa
-export const toggleTask = (taskId) => {
-    return {
-        type: 'TOGGLE_TASK',
-        payload: {
-            taskId
-        }
-    }
-}
 
-//Apagar uma tarefa 
-export const deleteTask = (taskId) => {
-    return {
-        type: 'DELETE_TASK',
-        payload: {
-            taskId
-        }
-    }
-}
+//Ações síncronas
+
 
 // Marcar todas como completas 
 export const completeAllTasks = () => {
@@ -35,12 +11,6 @@ export const completeAllTasks = () => {
     }
 }
 
-//Remover as tarefas completas
-export const deleteAllComplete = () => {
-    return {
-        type: 'DELETE_ALL_COMPLETE'
-    }
-}
 
 //Filtrar tarefas 
 export const setFilter = (filter) => {
@@ -51,3 +21,45 @@ export const setFilter = (filter) => {
         }
     }
 }
+
+//Mostrar tarefas
+export const setTasks = (taskList) => {
+    return {
+      type: "SET_TASKS",
+      payload: {
+        taskList
+      }
+    };
+  };
+
+
+
+//Ações assíncronas 
+
+export const fetchTasks = () => async (dispatch, getState) => {
+    const response = await axios.get("https://us-central1-missao-newton.cloudfunctions.net/reduxTodo/natalia/todos")
+
+    console.log(response.data.todos)
+    dispatch(setTasks(response.data.todos))
+}
+
+export const createTask = (taskText) => async (dispatch, getState) => {
+    const body = {
+        text: taskText
+    }
+    const response = await axios.post("https://us-central1-missao-newton.cloudfunctions.net/reduxTodo/natalia/todos", body)
+
+    dispatch(fetchTasks())
+}
+
+export const toggleTask = (taskId) => async (dispatch, getState) => {
+    const response = await axios.put(`https://us-central1-missao-newton.cloudfunctions.net/reduxTodo/natalia/todos/${taskId}/toggle`)
+}  
+
+export const deleteTask = (taskId) => async (dispatch, getState) => {
+    const response = await axios.delete(`https://us-central1-missao-newton.cloudfunctions.net/reduxTodo/natalia/todos/${taskId}`)
+}  
+
+export const deleteAllComplete = () => async (dispatch, getState) => {
+    const response = await axios.delete("https://us-central1-missao-newton.cloudfunctions.net/reduxTodo/natalia/todos/delete-done")
+}  

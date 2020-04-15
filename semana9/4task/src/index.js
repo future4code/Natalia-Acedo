@@ -6,10 +6,18 @@ import rootReducer from "./reducers";
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import thunk from "redux-thunk";
+import { applyMiddleware, compose } from 'redux';
 
-const reduxDevTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+const middlewares = [
+  applyMiddleware(thunk),
+  window.__REDUX_DEVTOOLS_EXTENSION__
+    ? window.__REDUX_DEVTOOLS_EXTENSION__()
+    : f => f
+];
 
-const store = createStore(rootReducer, reduxDevTools)
+
+const store = createStore(rootReducer, compose(...middlewares))
 
 ReactDOM.render(
   <React.StrictMode>

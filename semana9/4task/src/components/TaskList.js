@@ -1,28 +1,30 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { toggleTask, deleteTask } from '../actions/actionsTask'
+import { toggleTask, deleteTask, fetchTasks } from '../actions/actionsTask'
 
 class TaskList extends React.Component {
+  componentDidMount() {
+    this.props.fetchTasks()
+  }
+
   render() {
-    console.log(this.props.taskList)
     return (
       <ul>
         {this.props.taskList.filter((task) => {
           const filter = this.props.filter
-          if(filter === "pendentes") {
-            return task.taskDone === false
+          if (filter === "pendentes") {
+            return task.done === false
           }
-          if(filter === "completas") {
-            return task.taskDone === true
+          if (filter === "completas") {
+            return task.done === true
           }
           return true
-        }).map(task =>
-          <li
-            key={task.taskId}
-            onClick={() => this.props.toggleTask(task.taskId)}>
-            {task.taskText} - Completas: {String(task.taskDone)}
-            <button onClick={() => this.props.deleteTask(task.taskId)}>Deletar</button>
-          </li>)}
+        }).map((task) => {
+          return <li onClick={() => this.props.toggleTask(task.id)} key={task.id}>
+            {task.text}  - Completas: {String(task.done)}
+            <button onClick={() => this.props.deleteTask(task.id)}>Deletar</button>
+          </li>
+        })}
       </ul>
     )
   }
@@ -38,7 +40,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
   return {
     toggleTask: (taskId) => dispatch(toggleTask(taskId)),
-    deleteTask: (taskId) => dispatch(deleteTask(taskId))
+    deleteTask: (taskId) => dispatch(deleteTask(taskId)),
+    fetchTasks: () => dispatch(fetchTasks())
   }
 }
 

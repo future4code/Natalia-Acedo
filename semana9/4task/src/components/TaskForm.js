@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addTask } from '../actions/actionsTask'
+import { createTask } from '../actions/actionsTask'
 
 class TaskForm extends React.Component {
     constructor(props) {
@@ -16,7 +16,8 @@ class TaskForm extends React.Component {
     }
 
     onClickAddTask = () => {
-        this.props.addTask(this.state.inputText)
+        this.props.createTask(this.state.inputText)
+        this.setState({inputText: ""})
     }
 
     render() {
@@ -33,8 +34,8 @@ class TaskForm extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        addTask: (taskText) => {
-            dispatch(addTask(taskText))
+        createTask: (taskText) => {
+            dispatch(createTask(taskText))
         }
     }
 }
