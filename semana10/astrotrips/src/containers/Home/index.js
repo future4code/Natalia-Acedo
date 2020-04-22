@@ -1,66 +1,58 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { push, replace} from "connected-react-router";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
+import { push} from "connected-react-router";
 import styled from "styled-components";
 import { routes } from "../Router/index";
+import Header from "../../components/Header"
+import Footer from "../../components/Footer"
+import user from "../../img/user.jpg"
+import trips from "../../img/trips.jpg"
 
-const LoginWrapper = styled.form`
-  width: 100%;
-  height: 100vh;
-  gap: 10px;
-  place-content: center;
-  justify-items: center;
-  display: grid;
-`;
+const MainContainer = styled.div ` 
+  height: 75vh;
+  padding: 20% 10%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`
+
+const Tittle = styled.h2 ` 
+  letter-spacing: 3px;
+`
+
+const ImageHome = styled.img ` 
+  height: 380px;
+  border-radius: 200px;
+  cursor: pointer;
+`
+
 
 class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: "",
-      password: ""
-    };
-  }
-
-  handleFieldChange = event => {
-    this.setState({
-      [event.target.name]: event.target.value
-    });
-  };
-
   render() {
-    const { email, password } = this.state;
-
     return (
-      <LoginWrapper>
-        <TextField
-          onChange={this.handleFieldChange}
-          name="email"
-          type="email"
-          label="E-mail"
-          value={email}
-        />
-        <TextField
-          onChange={this.handleFieldChange}
-          name="password"
-          type="password"
-          label="Password"
-          value={password}
-        />
-        <Button>Login</Button>
-        <Button onClick={this.props.goTripsApplication}>VIAGENS</Button>
-        <Button onClick={this.props.goLogin}>ENTRAR</Button>
-      </LoginWrapper>
+      <div>
+      <Header/>
+        <MainContainer>
+          <div>
+            <Tittle> Destinos interplanetários</Tittle>
+            <ImageHome src={trips} onClick={this.props.goTripsApplication} />
+          </div>
+          <div>
+          <Tittle>Entrar na tela do usuário</Tittle>
+          <ImageHome src={user} onClick={this.props.goLogin}/>
+          </div>
+        </MainContainer>
+        <Footer/>
+      </div>
     );
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    goTripsApplication: () => dispatch(replace(routes.tripsApplication)),
-    goLogin: () => dispatch(replace(routes.login))
+    goTripsApplication: () => dispatch(push(routes.tripsApplication)),
+    goLogin: () => dispatch(push(routes.login))
   };
 }
 
