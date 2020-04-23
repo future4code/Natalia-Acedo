@@ -4,9 +4,9 @@ import { CountryDropdown } from "react-country-region-selector"
 import {applyToTrip, getTrips} from '../../actions/trips'
 
 const applyToTripInputs = [
-  {name: "nameUser", type:"text", label:"Se nome", pattern:"[A-Za-z ãéÁáêõÕÊíÍçÇÚúüÜ]{3,}", title:"Deve ter pelo menos 3 letras"},
+  {name: "name", type:"text", label:"Seu nome", pattern:"[A-Za-z ãéÁáêõÕÊíÍçÇÚúüÜ]{3,}", title:"Deve ter pelo menos 3 letras"},
   {name:"age", type:"number", label: "Sua idade", min:"18", title:"Apenas maiores de 18 podem aplicar"},  
-  {name:"applicationText", type:"text", label: "Por que você deveria ser escolhido?", pattern:"[A-Za-z ãéÁáêõÕÊíÍçÇÚúüÜ]{3,}", title:"Deve ter pelo menos 30 letras"},
+  {name:"applicationText", type:"text", label: "Por que você deveria ser escolhido?", pattern:"[A-Za-z ãéÁáêõÕÊíÍçÇÚúüÜ!:.,]{30,}", title:"Deve ter pelo menos 30 letras"},
   {name:"profession", type:"text", label: "Qual sua profissão?", pattern:"[A-Za-z ãéÁáêõÕÊíÍçÇÚúüÜ]{10,}", title:"Deve ter pelo menos 10 letras"}
 ]
 
@@ -14,14 +14,15 @@ class TripsApplication extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      form: {}
+      form: {},
+      tripId: null
     }
   }
 
   componentDidMount() {
 		if (this.props.getTrips) {
 			this.props.getTrips()
-		}
+    }
 	}
 
   handleInputChange = event => {
@@ -29,20 +30,18 @@ class TripsApplication extends React.Component {
     this.setState({form: {...this.state.form, [name]: value} })
   }
   
-  handleFormSubmit = event => {
-    event.preventDefault();
-    console.log(this.state.form);
-    this.setState({ form: {} });
+  handleSelectCountry = event => {
+    this.setState({form:{...this.state.form, country: event}})
   }
+
+  handleSelectTrip = event => {
+    this.setState({tripId: event.target.value})
+  }
+
   
   renderInputs = () => {
     return applyToTripInputs.map(input => {
-    if(input.name === "country") {
-      return <div>
-        <label htmlFor={input.name}> {input.label}: </label>
-      </div>
-    } else {
-      return <div>
+      return <>
         <label htmlFor={input.name}> {input.label}: </label>
         <input 
           pattern={input.pattern}
@@ -54,14 +53,28 @@ class TripsApplication extends React.Component {
           required
           onChange={this.handleInputChange}
         />
-      </div>
-    }
+      </>
+    })
+  }
+
+  
+  renderTripsDetails = () => {
+   return this.props.trips && this.props.trips.map(trip => {
+      return <option value={trip.id}> {trip.name} - {trip.planet} </option>
     })
   }
 
 
+  handleFormSubmit = event => {
+    event.preventDefault();
+    console.log(this.state)
+    const {form, tripId} = this.state
+    this.props.applyToTrip(form, tripId)
+    this.setState({ form: {} });
+  }
+  
+
   render () {
-    console.log("Aqui está", this.props.trips)
     return (
       <div>
         <h1>Viagens</h1>
@@ -73,7 +86,14 @@ class TripsApplication extends React.Component {
                 value={this.state.form.country || ""} 
                 title="Escolha um país"
                 required
+                onChange={this.handleSelectCountry}
             />
+
+          <label htmlFor="trip">Selecione a viagem</label>  
+          <select name="trip" onChange={this.handleSelectTrip}>
+            {this.renderTripsDetails()}
+          </select>
+              
           <button type="submit">Enviar</button>
         </form>
       </div>
@@ -82,14 +102,12 @@ class TripsApplication extends React.Component {
 };
 
 
-
-
 const mapStateToProps = (state) => ({
   trips: state.tripsData.trips
 });
 
 const mapDispatchToProps = dispatch => ({
-  //applyToTrip: () => dispatch(applyToTrip(form, id))   
+  applyToTrip: (form, id) => dispatch(applyToTrip(form, id)),
   getTrips: () => dispatch(getTrips())
 })
 

@@ -1,10 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
-import { push, replace } from "connected-react-router";
+import { replace } from "connected-react-router";
 import { routes } from "../Router/index";
 import styled from "styled-components";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import { login } from "../../actions/trips"
 
 const LoginWrapper = styled.form`
   width: 100%;
@@ -13,7 +14,7 @@ const LoginWrapper = styled.form`
   place-content: center;
   justify-items: center;
   display: grid;
-`;
+`
 
 
 class Login extends React.Component {
@@ -22,21 +23,33 @@ class Login extends React.Component {
     this.state = {
       email: "",
       password: ""
-    };
+    }
+  }
+
+  componentDidMount () {
+    const isLogged = localStorage.getItem("token")
+
+    if(isLogged !== null){
+      this.props.goUser()
+    }
   }
 
   handleFieldChange = event => {
     this.setState({
       [event.target.name]: event.target.value
-    });
-  };
+    })
+  }
+
+  handleLogin = event => {
+    event.preventDefault();
+    this.props.login(this.state.email, this.state.password);
+  }
 
   render() {
     const { email, password } = this.state;
-
     return (
       <div>
-        <LoginWrapper>
+        <LoginWrapper onSubmit={this.handleLogin}>
           <TextField
             onChange={this.handleFieldChange}
             name="email"
@@ -51,22 +64,21 @@ class Login extends React.Component {
             label="Password"
             value={password}
           />
-          <Button>Login</Button>
+          <Button type="submit">Login</Button>
           </LoginWrapper>
-        <div>Meu login</div>
-        <button onClick={this.props.goUser}>Tela usuário</button>
       </div>
-    );
+    )
   }
-};
+}
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = dispatch => {
   return {
     goUser: () => dispatch(replace(routes.user)),
+    login: (email, password) => dispatch(login(email, password))
   };
 }
 
 export default connect(
   null,
   mapDispatchToProps
-)(Login);
+)(Login)
