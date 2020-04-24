@@ -1,11 +1,35 @@
 import React from "react";
 import { connect } from "react-redux";
+import { createTripPost } from '../../actions/trips'
+
+const todayDate = () => {
+  let today = new Date();
+  let day = today.getDate();
+  let month = today.getMonth()+1;
+  let year = today.getFullYear();
+       if(day<10 && month<10){
+              day='0'+day
+              month='0'+month
+              return year+'-'+month+'-'+day;
+          } 
+      else if(month<10){
+          month='0'+month
+          return year+'-'+month+'-'+day;
+      }
+      else if(day<10){
+          day='0'+day
+          return year+'-'+month+'-'+day;
+      }
+      else {
+        return year+'-'+month+'-'+day;
+      }
+}
 
 
 const createTrip = [
   {name: "tripName", type:"text", label:"Viagem", pattern:"[A-Za-z ]{5,}", title:"Deve ter pelo menos 5 letras"},
   {name: "planet", type:"text", label:"Planeta", title:"Escolha um planeta"},
-  {name:"date", type: "date", label:"Data da viagem"},
+  {name:"date", type: "date", label:"Data da viagem", min: todayDate()},
   {name:"description", type: "text", label:"Sobre a viagem", pattern: "[A-Za-z ]{30,}", title:"Deve ter pelo menos 30 letras"},
   {name:"duration", type: "number", label:"Duração da viagem", min:"50", title:"Deve ter pelo menos 50 dias"}
 ]
@@ -26,6 +50,7 @@ class TripsCreate extends React.Component {
   handleFormSubmit = event => {
     event.preventDefault();
     console.log(this.state.form);
+    this.props.createTripPost(this.state.form)
     this.setState({ form: {} });
   }
 
@@ -80,11 +105,10 @@ class TripsCreate extends React.Component {
 }
 
 
-function mapDispatchToProps(dispatch) {
-  return {
-        
-  };
-}
+const mapDispatchToProps = dispatch => ({
+  createTripPost: (form) => dispatch(createTripPost(form))
+})
+
 
 export default connect(
   null,

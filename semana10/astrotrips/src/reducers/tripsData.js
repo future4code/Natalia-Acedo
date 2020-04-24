@@ -1,5 +1,6 @@
 const initialState = {
-    trips: null            
+    trips: null,
+    tripDetails: null,        
   }
 
   const tripsData = (state = initialState, action) => {
@@ -7,6 +8,10 @@ const initialState = {
       case "SET_TRIPS": {
         return { ...state, trips: action.payload.trip }
         }
+      case "SET_TRIP_DETAILS": {
+        return {...state, tripDetails: action.payload.tripDetails}
+      }
+      
       default:
         return state
     }

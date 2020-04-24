@@ -21,7 +21,7 @@ class User extends React.Component {
       <div>
         <h1>Bem-vindo, astronauta!</h1>
         <button onClick={this.props.goTripesCreate}>Criar Viagem</button>
-        <button onClick={this.props.goTripesDetails}>Detalhes da viagem</button>
+        <button onClick={this.props.goTripesDetails}>Ver viagens</button>
         {isLogged && <button onClick={this.handleLogout}>Logout</button>}
       </div>
     );
@@ -31,7 +31,7 @@ class User extends React.Component {
 function mapDispatchToProps(dispatch) {
   return {
     goTripesCreate: () => dispatch(push(routes.tripsCreate)),
-    goTripesDetails: () => dispatch(push(routes.tripsDetails)),
+    goTripesDetails: () => dispatch(push(routes.trips)),
     goHome: () => dispatch(replace(routes.root))
   };
 }

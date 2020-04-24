@@ -6,6 +6,7 @@ import TripsApplication from "../TripsApplication"
 import Login from "../Login" 
 import User from "../User" 
 import TripsCreate from "../TripsCreate" 
+import Trips from "../Trips"
 import TripsDetails from "../TripsDetails" 
 
 
@@ -15,6 +16,7 @@ export const routes = {
   login: "/login",
   user: "/user",
   tripsCreate: "/trips/create",
+  trips: "/trips",
   tripsDetails: "/trips/details"
 };
 
@@ -27,6 +29,7 @@ function Router(props) {
         <Route exact path={routes.login} component={Login} />
         <Route exact path={routes.user} component={User} />
         <Route exact path={routes.tripsCreate} component={TripsCreate} />
+        <Route exact path={routes.trips} component={Trips} />
         <Route exact path={routes.tripsDetails} component={TripsDetails} />
       </Switch>
     </ConnectedRouter>
