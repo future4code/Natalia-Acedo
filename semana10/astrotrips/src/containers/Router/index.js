@@ -8,6 +8,8 @@ import User from "../User"
 import TripsCreate from "../TripsCreate" 
 import Trips from "../Trips"
 import TripsDetails from "../TripsDetails" 
+import Footer from "../../components/Footer"
+import Header from "../Header/Header"
 
 
 export const routes = {
@@ -23,6 +25,7 @@ export const routes = {
 function Router(props) {
   return (
     <ConnectedRouter history={props.history}>
+      <Header/>
       <Switch>
         <Route exact path={routes.root} component={Home} />
         <Route exact path={routes.tripsApplication} component={TripsApplication} />
@@ -32,6 +35,7 @@ function Router(props) {
         <Route exact path={routes.trips} component={Trips} />
         <Route exact path={routes.tripsDetails} component={TripsDetails} />
       </Switch>
+      <Footer/>
     </ConnectedRouter>
   );
 }

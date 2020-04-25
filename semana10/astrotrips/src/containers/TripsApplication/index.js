@@ -6,11 +6,11 @@ import { applyToTrip, getTrips } from '../../actions/trips'
 
 import imageApply from "../../img/aplly.png"
 import styled from "styled-components";
-import Header from "../../components/Header"
-import Footer from "../../components/Footer"
 import Button from "@material-ui/core/Button";
 
-const Tittle = styled.h2` 
+const Tittle = styled.h1`
+  @import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto');
+  font-family: Roboto, sans-serif; 
   letter-spacing: 3px;
   margin-left: 10%;
 `
@@ -70,7 +70,7 @@ class TripsApplication extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.getTrips && this.props.trips === null) {
+    if (this.props.getTrips) {
       this.props.getTrips()
     }
   }
@@ -128,7 +128,6 @@ class TripsApplication extends React.Component {
   render() {
     return (
       <div>
-        <Header />
         <Tittle>Aplicar a uma viagem</Tittle>
         <MainContainer>
           <FormStyled onSubmit={this.handleFormSubmit}>
@@ -152,8 +151,6 @@ class TripsApplication extends React.Component {
             <img src={imageApply} />
           </ContainerImage>
         </MainContainer>
-
-        <Footer />
       </div>
     );
   }

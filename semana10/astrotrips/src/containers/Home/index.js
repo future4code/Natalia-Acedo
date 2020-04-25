@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { push} from "connected-react-router";
+import { push } from "connected-react-router";
 import styled from "styled-components";
 import { routes } from "../Router/index";
-import Header from "../../components/Header"
-import Footer from "../../components/Footer"
 import user from "../../img/user.jpg"
 import trips from "../../img/trips.jpg"
 
@@ -17,7 +15,9 @@ const MainContainer = styled.div `
   justify-content: space-between;
 `
 
-const Tittle = styled.h2 ` 
+const Tittle = styled.h1` 
+  @import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto');
+  font-family: Roboto, sans-serif;
   letter-spacing: 3px;
 `
 
@@ -32,7 +32,6 @@ class Home extends Component {
   render() {
     return (
       <div>
-      <Header/>
         <MainContainer>
           <div>
             <Tittle> Destinos interplanetários</Tittle>
@@ -43,7 +42,6 @@ class Home extends Component {
           <ImageHome src={user} onClick={this.props.goLogin}/>
           </div>
         </MainContainer>
-        <Footer/>
       </div>
     );
   }

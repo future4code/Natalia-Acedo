@@ -1,5 +1,5 @@
 import axios from "axios"
-import { push } from "connected-react-router";
+import { push,replace } from "connected-react-router";
 import { routes } from "../containers/Router/index";
 import moment from 'moment'
 
@@ -23,18 +23,27 @@ export const setTripsDetails = (tripDetails) => {
 
 
 export const getTrips = () => async (dispatch) => {
-    const response = await axios.get(
-        "https://us-central1-missao-newton.cloudfunctions.net/futureX/natalia-acedo/trips"
-    )
-    dispatch(setTrips(response.data.trips))
+    try {
+        const response = await axios.get(
+            "https://us-central1-missao-newton.cloudfunctions.net/futureX/natalia-acedo/trips"
+        )
+        dispatch(setTrips(response.data.trips))
+    } catch (error) {
+        console.error(error)
+    } 
 }
 
 
 export const applyToTrip = (form, id) => async () => {
-    await axios.post(
+    try {
+        await axios.post(
         `https://us-central1-missao-newton.cloudfunctions.net/futureX/natalia-acedo/trips/${id}/apply`,
         form
-    )
+        )
+        alert("Aplicação enviada!")
+    } catch (error) {
+        console.error(error)
+    }
 }
 
 
@@ -53,24 +62,29 @@ export const login = (email, password) => async (dispatch) => {
         dispatch(push(routes.user))
     } catch (error) {
         console.error(error)
+        alert("Dados incorretos")
     }
 }
 
 const token = localStorage.getItem("token");
 
 export const getTripDetails = (id) => async (dispatch) => {
-    const response = await axios.get(
-        `https://us-central1-missao-newton.cloudfunctions.net/futureX/natalia-acedo/trip/${id}`,
-        {
-            headers: {
-                auth: token
+    try {
+        const response = await axios.get(
+            `https://us-central1-missao-newton.cloudfunctions.net/futureX/natalia-acedo/trip/${id}`,
+            {
+                headers: {
+                    auth: token
+                }
             }
-        }
-    )
-    dispatch(setTripsDetails(response.data.trip))
+        )
+        dispatch(setTripsDetails(response.data.trip))
+    } catch (error) {
+        console.error(error)
+    }
 }
 
-export const decideCandidate = (candidateId, tripId) => async () => {
+export const decideCandidate = (candidateId, tripId) => async (dispatch) => {
     const body = {
         approve: true
     }
@@ -110,8 +124,8 @@ export const createTripPost = (form) => async () => {
                 auth: token
             }
         })
+        alert("Viagem criada!")
     } catch (error) {
         console.error(error)
-        console.log(body)
     }  
 }
