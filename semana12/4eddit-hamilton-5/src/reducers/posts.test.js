@@ -35,11 +35,8 @@ describe("Posts Reducer", () => {
         
         const mockAction = setLoading(mockLoading)
 
-    
-        // Execução
         const newState = posts(mockStateLoading, mockAction);
     
-         //Verificação
         expect(newState.isLoading).toBe(mockLoading);
     });
 })
