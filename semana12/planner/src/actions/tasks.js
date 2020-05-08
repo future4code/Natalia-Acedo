@@ -22,7 +22,7 @@ export const createTask = (text, day) => async () => {
         day
     }
     await axios.post(
-        "https://us-central1-missao-newton.cloudfunctions.net/generic/:planner-aluno",
+        "https://us-central1-missao-newton.cloudfunctions.net/generic/planner-natalia-acedo",
         body
     )
 }

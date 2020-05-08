@@ -16,7 +16,7 @@ describe ("Tasks Reducer", () => {
         const newState = tasks(mockStateTask, mockAction)
 
         expect(newState.allTasks).toHaveLength(1)
-        expect(newState.allTasks).toBe(mockTask)          
+        expect(newState.allTasks).toBe(mockTask)
     })
 
     test("Invalid Action Type", () => {

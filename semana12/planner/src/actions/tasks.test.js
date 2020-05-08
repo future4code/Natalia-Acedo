@@ -42,9 +42,7 @@ describe ("Tasks Actions", () => {
         const mockText = "Wash the dishes"
         const mockDay = "Monday"
 
-        axios.post = jest.fn(async() => {
-            
-        })
+        axios.post = jest.fn()
         
         await createTask(mockText,mockDay)()
     })
