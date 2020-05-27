@@ -33,7 +33,6 @@ async function getSubscribers(): Promise <User[]> {
 
 const getSubscribersArrow = async(): Promise <User[]> => {
     const users = await axios.get(`${baseUrl}/subscribers/all`)
-    console.log("Pegou usuários")
     return users.data.map((res: any) => {
         return {
             id: res.id,
@@ -52,13 +51,13 @@ const getSubscribersArrow = async(): Promise <User[]> => {
 // a. Função void, pois ela não retorna nada.
 // b.:
 
-const createNews = async(): Promise <void> => {
+const createNews = async(title: string, content: string, date: number): Promise <void> => {
     await axios.put(`${baseUrl}/news`, {
-        title: "Olga Tokarczuk",
-        content: "Sobre os ossos dos mortos",
-        date: Date.now()
+        title,
+        content,
+        date
       })
-      console.log("New post")
+
 }
 
 //Exercício 5
@@ -85,7 +84,7 @@ const sendNotificationsB = async (users: User[], message: string): Promise <void
         promiseArray.push(
             axios.post(`${baseUrl}/notifications/send`, {
                 subscriberId: user.id,
-                message: "New!"
+                message
             })
         )
     }
@@ -93,33 +92,68 @@ const sendNotificationsB = async (users: User[], message: string): Promise <void
 }
 
 //Exercício 7
-// 
+// a.:
 
+const createSubscriber = async (name: string, email: string): Promise <void> => {
+    await axios.put(`${baseUrl}/subscribers`, {
+        name,
+        email
+      })
+}
 
+// b.: 
 
-
-
-// MAIN
-const main = async (): Promise<any> => {
+const createSendNotifications = async () => {
     try {
-        console.log("Antes de chamar")
+        await createNews (
+            "Elena Ferrante",
+            "L'amica geniale",
+            Date.now()
+        )
 
-        const createNewsConst = await createNews()
+        const users = await getSubscribersArrow()
 
-    const subscribers = await axios.get(`${baseUrl}/subscribers/all`)
-        
-        for (const subscriber of subscribers.data) {
-            await axios.post(`${baseUrl}/notifications/send`, {
-                subscriberId: subscriber.id,
-                message: "New!"
-            })
-        }  
-
-        console.log("fim")
-
+        await sendNotificationsB(users, "Check the news!")
+       
     } catch (err) {
         console.error(err)
     }
 }
 
-main()
+
+//c.:
+
+const getAllNotifications = async () => {
+    const users = await getSubscribersArrow()
+
+    const notificationPromises = []
+
+    for (const user of users) {
+        notificationPromises.push(
+          axios.get(`${baseUrl}/subscribers/${user.id}/notifications/all`)
+        )
+      }
+
+    const result = await Promise.all(notificationPromises);
+
+    const dataFromResult = result.map((res) => res.data);
+
+    return console.log(dataFromResult)
+    
+}
+
+getAllNotifications()
+
+
+
+
+
+ const main = async (): Promise<any> => {
+    try {
+        getAllNotifications()
+    } catch (err) {
+        console.error(err)
+    }
+}
+
+main() 
