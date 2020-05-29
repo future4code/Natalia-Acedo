@@ -1,45 +1,53 @@
 import * as fs from "fs";
 import * as moment from "moment";
-moment.locale("pt-br");
+moment.locale('pt-br')
 
 type event = {
-  name: string;
-  description: string;
-  date: string;
+    name: string;
+    description: string;
+    date:string;
 };
 
-const allEvents: event[] = [];
+let allEvents: event[] = [];
+
+const nameArg: string = process.argv[2]
+const descriptionArg: string = process.argv[3]
+const dateArg: any = moment(process.argv[4], "DD-MM-YYYY")
+
+const today = moment().unix()
+
+const getEvents = (): any => {
+    return JSON.parse(fs.readFileSync("allEvents.json", "utf-8"))
+};
+
+console.log(getEvents())
 
 const createEvent = (name: string, description: string, date: string) => {
   const newEvent: event = {
     name,
     description,
-    date,
+    date
   };
 
+  allEvents = getEvents()
+
+  const newDate = moment(date, "DD/MM/YYYY").unix()
+
   if (name && description && date !== "Invalid date") {
-    console.log("Please, type all required information");
+
+    if(newDate > today) {
+        allEvents.push(newEvent);
+        fs.writeFileSync("allEvents.json", JSON.stringify(allEvents));
+    
+        console.log(newEvent);
+    } else {
+        console.log("Please, type a valid date.")
+    }
+    
   } else {
-    allEvents.push(newEvent);
-    fs.writeFileSync("allEvents.json", JSON.stringify(allEvents));
-
-    console.log(name);
-    console.log(description);
-    console.log(date);
-
-    console.log(newEvent);
+    console.log("Please, type all required information");
   }
 };
 
-const getEvents = (): void => {
-  console.log(fs.readFileSync("allEvents.json", "utf-8"));
-};
 
-const nameArg: string = process.argv[2];
-const descriptionArg: string = process.argv[3];
-const dateArg: any = moment(process.argv[4], "DD MM YYY");
-
-createEvent(nameArg, descriptionArg, dateArg);
-
-const today = moment();
-console.log("DIA DE HOJE: " + today.format("DD MM YYYY"));
+createEvent(nameArg, descriptionArg, dateArg.format("DD-MM-YYYY"))
