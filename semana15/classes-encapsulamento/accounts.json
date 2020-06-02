@@ -1,8 +1,20 @@
 [
   {
-    "balance": 15,
-    "cpf": "erika",
-    "name": "ivana",
+    "balance": 80,
+    "cpf": "234567891",
+    "name": "Natália",
     "age": 27
+  },
+  {
+    "balance": 100,
+    "cpf": "345678912",
+    "name": "Lucas",
+    "age": 27
+  },
+  {
+    "balance": 120,
+    "cpf": "456789123",
+    "name": "Ivana",
+    "age": 25
   }
 ]

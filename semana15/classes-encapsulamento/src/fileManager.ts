@@ -13,4 +13,5 @@ export class FileManager {
     public writeToJson(accounts: UserAccount[]): void {
         fs.writeFileSync(this.fileName, JSON.stringify(accounts, null, 2))
     }
+
 }

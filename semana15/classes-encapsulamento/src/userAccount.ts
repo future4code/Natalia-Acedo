@@ -20,12 +20,16 @@ export class UserAccount {
         return this.age
     }
 
+    public getCpf(): string {
+        return this.cpf
+    }
+
 
     public getBalance(): number {
       return this.balance
     }
   
-    public addBalance(): void {
+    public addBalance(value: number): void {
       //Aqui deve ser inserida a lógica de adicionar saldo
       console.log("Saldo atualizado com sucesso");
     }
