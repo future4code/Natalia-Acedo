@@ -1,0 +1,40 @@
+[
+  {
+    "id": 1591366382562,
+    "name": "Amanda",
+    "email": "amandinha@gmail.com",
+    "birthday": "18/07/1994",
+    "specialties": [
+      "TYPESCRIPT"
+    ]
+  },
+  {
+    "id": 1591554430391,
+    "name": "João",
+    "email": "joao-professor@gmail.com",
+    "birthday": "1996-10-17T02:00:00.000Z",
+    "specialties": [
+      "BACKEND"
+    ]
+  },
+  {
+    "id": 1591556939128,
+    "name": "Paulinha",
+    "email": "paula@gmail.com",
+    "birthday": "1995-10-17T02:00:00.000Z",
+    "specialties": [
+      "CSS",
+      "REACT"
+    ]
+  },
+  {
+    "id": 1591557700406,
+    "name": "Soter",
+    "email": "soter@gmail.com",
+    "birthday": "1996-09-09T03:00:00.000Z",
+    "specialties": [
+      "CSS",
+      "REACT"
+    ]
+  }
+]
