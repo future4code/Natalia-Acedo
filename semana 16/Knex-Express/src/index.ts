@@ -104,7 +104,7 @@ const countActorGender = app.get(
 
 app.post("/actor", async (req: Request, res: Response) => {
   try {
-    await updateActorSalary(req.body.salary, req.body.id, );
+    await updateActorSalary(req.body.salary, req.body.id);
     res.status(200).send({
       message: "Success",
     });
@@ -114,3 +114,104 @@ app.post("/actor", async (req: Request, res: Response) => {
     });
   }
 });
+
+app.delete("/actor/:id", async (req: Request, res: Response) => {
+  try {
+    await deleteActor(req.params.id);
+    res.status(200).send({
+      message: "Success",
+    });
+  } catch (err) {
+    res.status(400).send({
+      message: err.message,
+    });
+  }
+});
+
+const createMovie = async (
+  id: string,
+  title: string,
+  synopsis: string,
+  releaseDate: Date,
+  rating: number,
+  playingLimitDate: Date
+): Promise<any> => {
+  try {
+    await connection
+      .insert({
+        id,
+        title,
+        synopsis,
+        release_Date: releaseDate,
+        rating,
+        playing_limit_date: playingLimitDate,
+      })
+      .into("Movie");
+  } catch (err) {
+    console.error(err.message);
+  }
+};
+
+app.post("/movie", async (req: Request, res: Response) => {
+  try {
+    await createMovie(
+      req.body.id,
+      req.body.title,
+      req.body.synopsis,
+      new Date(req.body.releaseDate),
+      req.body.rating,
+      new Date(req.body.playingLimitDate)
+    );
+    res.status(200).send({
+      message: "Success",
+    });
+  } catch (err) {
+    res.status(400).send({
+      message: err.message,
+    });
+  }
+});
+
+const getMovie = async (): Promise<any> => {
+  try {
+    const result = await connection("Movie").select("*").limit(15);
+    return result;
+  } catch (err) {
+    console.error(err.message);
+  }
+};
+
+app.get("/movie/all", async (req: Request, res: Response) => {
+  try {
+    const movies = await getMovie();
+    res.status(200).send({
+      movies,
+    });
+  } catch (err) {
+    res.status(400).send({
+      message: err.message,
+    });
+  }
+});
+
+const searchMovie = async (title: string): Promise<any> => {
+  const result = await connection.raw(`
+      SELECT * FROM Movie WHERE title = '${title}'
+    `);
+
+  return result[0][0];
+};
+
+app.get("/movie/search", async (req: Request, res: Response) => {
+    try {
+      const movies = await searchMovie(req.query.query as string);
+  
+      res.status(200).send({
+        movies: movies,
+      });
+    } catch (err) {
+      res.status(400).send({
+        message: err.message,
+      });
+    }
+  });
