@@ -121,5 +121,3 @@ const cast = async(movie_id: string, actor_id: string): Promise<any> => {
         console.error(err.message);
       }
 }
-
-deleteMovie("002")
