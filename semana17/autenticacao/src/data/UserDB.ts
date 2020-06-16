@@ -12,23 +12,36 @@ export class UserDatabase {
     },
   });
 
-  private static TABLE_NAME = "UserAut"; 
+  private static TABLE_NAME = "UserAut";
 
-  public async createUser(id: string, email: string, password: string): Promise <void> {
+  public async createUser(
+    id: string,
+    email: string,
+    password: string
+  ): Promise<void> {
     await this.connection
-    .insert({
+      .insert({
         id,
         email,
         password,
       })
       .into(UserDatabase.TABLE_NAME);
-  };
+  }
 
   public async getUserByEmail(email: string): Promise<any> {
-      const resultDB = await this.connection
-      .select("*") 
+    const resultDB = await this.connection
+      .select("*")
       .from(UserDatabase.TABLE_NAME)
       .where({ email });
-      return console.log(resultDB[0]);
+    return console.log(resultDB[0]);
+  }
+
+  public async getUserById(id: string): Promise<any> {
+    const resultDB = await this.connection
+      .select("*")
+      .from(UserDatabase.TABLE_NAME)
+      .where({ id });
+
+    return resultDB[0];
   }
 }

@@ -85,8 +85,8 @@ app.post("/login", async (req: Request, res: Response) => {
       password: req.body.password,
     };
 
-    const userDataBase  = new UserDatabase()
-    const user = await userDataBase.getUserByEmail(userData.email)
+    const userDataBase = new UserDatabase();
+    const user = await userDataBase.getUserByEmail(userData.email);
 
     if (user.password !== userData.password) {
       throw new Error("Invalid password");
@@ -94,11 +94,32 @@ app.post("/login", async (req: Request, res: Response) => {
 
     const authenticator = new Authenticator();
     const token = authenticator.generateToken({
-      id: user.id
+      id: user.id,
     });
 
     res.status(200).send({
       token,
+    });
+  } catch (err) {
+    res.status(400).send({
+      message: err.message,
+    });
+  }
+});
+
+app.get("/user/profile", async (req: Request, res: Response) => {
+  try {
+    const token = req.headers.authorization as string;
+
+    const authenticator = new Authenticator();
+    const authenticationData = authenticator.getData(token);
+
+    const userDb = new UserDatabase();
+    const user = await userDb.getUserById(authenticationData.id);
+
+    res.status(200).send({
+      id: user.id,
+      email: user.email,
     });
   } catch (err) {
     res.status(400).send({
