@@ -1,5 +1,6 @@
 import { BaseDatabase } from "./BaseDatabase";
 
+
 export class PostDatabase extends BaseDatabase {
   tableName: string = "LaPosts";
   public async createPost(
