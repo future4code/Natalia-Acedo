@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1591365523369,
+    "name": "Lucas",
+    "email": "l@gmail.com",
+    "birthday": "1993-03-08T00:00:00-03:00",
+    "hobbies": [
+      "ler",
+      "ver séries"
+    ]
+  },
+  {
+    "id": 1591365812945,
+    "name": "Natália",
+    "email": "n@gmail.com",
+    "birthday": "1993-03-08T00:00:00-03:00",
+    "hobbies": [
+      "ler"
+    ]
+  },
+  {
+    "id": 1591559062367,
+    "name": "Rodrigo",
+    "email": "rodrigo@gmail.com",
+    "birthday": "1996-04-07T03:00:00.000Z",
+    "hobbies": [
+      "dormir de manhã"
+    ]
+  }
+]
