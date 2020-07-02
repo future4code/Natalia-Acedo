@@ -5,3 +5,9 @@ export class NotFoundError extends BaseError {
     super(message, 404);
   }
 }
+
+export class UnauthorizedError extends BaseError {
+  constructor(message: string) {
+    super(message, 403);
+  }
+}

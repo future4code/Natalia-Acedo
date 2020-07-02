@@ -73,4 +73,24 @@ export class UserController {
       res.status(err.errorCode || 400).send({ message: err.message });
     }
   }
+
+  public async getProfile(req: Request, res: Response) {
+    try {
+      const token = req.headers.token as string;
+      const authenticationData = new TokenGenerator().verify(token);
+
+      const result = await UserController.UserBusiness.getUserById(
+        authenticationData.id
+      );
+
+      res.status(200).send({
+        id: result.id,
+        name: result.name,
+        email: result.email,
+        role: result.role,
+      });
+    } catch (err) {
+      res.status(err.errorCode || 400).send({ message: err.message });
+    }
+  }
 }

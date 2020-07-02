@@ -1,5 +1,5 @@
 import { UserBusiness } from "../../src/business/UserBusiness";
-import { User, UserRole, stringToUserRole } from "../../src/model/User";
+import { User, UserRole } from "../../src/model/User";
 
 describe("Testing UserBusiness.getUserById", () => {
   let userDatabase = {};
