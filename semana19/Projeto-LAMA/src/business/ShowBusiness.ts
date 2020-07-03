@@ -16,7 +16,6 @@ export class ShowBusiness {
     endTime: number,
     bandId: string
   ) {
-
     const startRound = Math.round(startTime);
     const endRound = Math.round(endTime);
 
@@ -24,7 +23,6 @@ export class ShowBusiness {
       weekDay,
       startRound
     );
-
 
     if (showScheduled) {
       throw new GenericError("A show is already scheduled at this time");
@@ -40,16 +38,16 @@ export class ShowBusiness {
       throw new InvalidParameterError("Invalid end time");
     }
 
-   if (
-      weekDay.toLowerCase() !== "friday" ||
-      weekDay.toLowerCase() !== "saturday" ||
-      weekDay.toLowerCase() !== "sunday"
-    ) {
-      throw new InvalidParameterError("Invalid day");
-    }
-
     await this.showDatabase.createShow(
       new Show(id, weekDay, startTime, endTime, bandId)
     );
+  }
+
+  public async getAllShows(weekDay: string) {
+    if (!weekDay) {
+      throw new InvalidParameterError("Missing input");
+    }
+
+    return await this.showDatabase.getAllShowsByDay(weekDay)
   }
 }

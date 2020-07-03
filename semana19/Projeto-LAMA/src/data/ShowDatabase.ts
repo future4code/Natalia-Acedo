@@ -36,4 +36,14 @@ export class ShowDataBase extends BaseDataBase {
       `)
       return this.toModel(result[0][0])
   }
+
+  public async getAllShowsByDay(weekDay: string): Promise<Show[]> {
+    const result = await super.getConnection().raw(`
+    SELECT * FROM ${this.TABLE_NAME}
+    WHERE week_day = '${weekDay}'  
+  `)
+  return result[0].map((res:any) => {
+      return this.toModel(res)
+  })
+  }
 }

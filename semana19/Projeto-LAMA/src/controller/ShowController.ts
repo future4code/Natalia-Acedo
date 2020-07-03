@@ -22,7 +22,6 @@ export class ShowController {
         band_id: req.body.band_id,
       };
 
-
       await ShowController.ShowBusiness.createShow(
         showData.week_day,
         showData.start_time,
@@ -32,6 +31,23 @@ export class ShowController {
 
       res.status(200).send({
         message: "Scheduled show",
+      });
+    } catch (err) {
+      res.status(err.errorCode || 400).send({ message: err.message });
+    }
+  }
+
+  public async getAllShows(req: Request, res: Response) {
+    try {
+      const token = req.headers.token as string;
+      new TokenGenerator().getData(token);
+
+      const shows = await ShowController.ShowBusiness.getAllShows(
+        req.body.week_day
+      );
+
+      res.status(200).send({
+        shows,
       });
     } catch (err) {
       res.status(err.errorCode || 400).send({ message: err.message });

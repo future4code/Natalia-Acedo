@@ -30,7 +30,6 @@ export class UserController {
     } catch (err) {
       res.status(err.errorCode || 400).send({ message: err.message });
     }
-    //await BaseDataBase.destroyConnection()
   }
 
   async login(req: Request, res: Response) {
@@ -45,7 +44,6 @@ export class UserController {
     } catch (err) {
       res.status(err.errorCode || 400).send({ message: err.message });
     }
-    //await BaseDataBase.destroyConnection()
   }
 
   async refreshToken(req: Request, res: Response) {
@@ -58,6 +56,5 @@ export class UserController {
       } catch (err) {
         res.status(err.errorCode || 400).send({ message: err.message });
       }
-      //await BaseDataBase.destroyConnection()
   }
 }
