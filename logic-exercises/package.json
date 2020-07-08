@@ -1,0 +1,17 @@
+{
+  "name": "logic-exercises",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node ./src/exercise2.ts"
+  },
+  "author": "Natália Acedo",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^14.0.9",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.3"
+  }
+}

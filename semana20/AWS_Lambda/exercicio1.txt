@@ -1,0 +1,94 @@
+exports.handler = async event => {
+  if (!event.user || !event.user.info) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ message: "Missing input" })
+    };
+  }
+  const user = {
+    name: event.user.info.name,
+    email: event.user.info.email,
+    password: event.user.info.password
+  };
+
+  if (!user.name) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ message: "Missing name" })
+    };
+  }
+  if (!user.email) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ message: "Missing email" })
+    };
+  }
+  if (!user.password || user.password.length < 6) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ message: "Invalid password" })
+    };
+  }
+
+  return {
+    statusCode: 200,
+    body: JSON.stringify({
+      message: "User is correct"
+    })
+  };
+};
+
+
+B)
+{
+    statusCode: 400,
+    body: JSON.stringify({ message: "Missing input" })
+};
+
+
+C)
+{
+    statusCode: 400,
+    body: JSON.stringify({ message: "Missing input" })
+};
+
+
+D) 
+{
+    statusCode: 400,
+    body: JSON.stringify({ message: "Missing email" })
+};
+
+
+E)
+{
+    statusCode: 400,
+    body: JSON.stringify({ message: "Invalid password" })
+};
+
+
+F)
+{
+    statusCode: 200,
+    body: JSON.stringify({
+    message: "User is correct"
+    })
+}
+
+G) if (!user.email) {
+    return {
+      statusCode: 422,
+      body: JSON.stringify({ message: "Missing email" })
+    };
+  }
+
+H)
+{
+  "user": {
+		"info": {
+			"name": "Astrodev",
+			"email": "astrodev@f4.com.br",
+			"password": "123456"
+		}
+    }
+}
