@@ -9,7 +9,8 @@ const userBirthday: string = process.argv[4]
 type account = {
     name: string,
     cpf: string,
-    birthday: string
+    birthday: string, 
+    balance: number
 }
 
 type transaction = {
@@ -20,11 +21,14 @@ type transaction = {
     transactionValue: number
 }
 
-function createAccount (userName: string, userCpf: string, userBirthday: string): any {
+
+
+function createAccount (userName: string, userCpf: string, userBirthday: string, userBalance: number): any {
     const newAccount: account ={
         name: userName,
         cpf: userCpf,
-        birthday: userBirthday
+        birthday: userBirthday,
+        balance: userBalance
     }
 
     try {
@@ -47,3 +51,4 @@ function getAllAccounts (): any {
 }
 
 getAllAccounts()
+
