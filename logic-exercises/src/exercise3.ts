@@ -15,7 +15,7 @@ function compareStrings(a: string, b: string): boolean {
   }
 }
 
-//console.log(compareStrings("escola", "escolA"));
+console.log(compareStrings("escola", "escolA"));
 
 // B)
 
@@ -28,13 +28,4 @@ function compareTwoStrings(a: string, b: string): boolean {
 }
 
 
-//console.log(compareTwoStrings("escola", "eScOlA"))
-
-
-const verifyExistence = (input: any) => {
-  return input !== undefined && input !== null;
-};
-
-
-console.log(verifyExistence("teste"))
-console.log(verifyExistence(undefined))
+console.log(compareTwoStrings("escola", "eScOlA"))
