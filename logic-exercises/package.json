@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node ./src/exercise2.ts"
+    "start": "ts-node ./src/exercise4.ts"
   },
   "author": "Natália Acedo",
   "license": "ISC",

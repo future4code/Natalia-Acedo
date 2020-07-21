@@ -1,0 +1,22 @@
+EXERCÍCIO 1
+
+TAREFA 2:
+
+1) Sem rodar esse código, dê três exemplos de entrada e saída da função `verifyExistence`
+entrada: null, saída: false.
+entrada: undefined, saída: false.
+entrada: "Teste", saída "true
+
+
+2) Por que precisamos utilizar o comando `JSON.parse(event.body)`?
+Como o body é em formato JSON, precisamos usar o método "JSON.parse()" para podermos transformá-la em objeto e assim acessar suas chaves e valores. 
+
+
+3) Explique em que situação essa lambda retorna um código de `200` e qual o valor do `body` nesse caso
+Essa Lambda retornará o status "200" quando o body e as queries existirem, ou seja, quando a função verifyExistence retornará true na validação desses dois inputs.
+
+
+4) Explique em que situação essa lambda retorna um código de erro `400` com a mensagem `Missing Input`
+A lambda retornará o erro "400" quando tanto o body e as queries forem null ou undefined.
+
+
